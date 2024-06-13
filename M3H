@@ -14,7 +14,8 @@ def calculate_structure_sum(data_structure):
     for i in data_structure:
         if isinstance(i, (list, tuple, set)):
             result.extend(calculate_structure_sum(i))
-            # if i in result == dict
+        elif isinstance(i, dict):
+            result.extend(i.items())
         else:
             result.append(i)
     return result
